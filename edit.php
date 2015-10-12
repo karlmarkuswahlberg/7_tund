@@ -6,7 +6,7 @@
 	
 	if(isset($_GET["update"])){
 		updateCarData($_GET["car_id"], $_GET["number_plate"], $_GET["color"]);
-		echo 
+		
 	}
 	//trükin aadressirealt muutuja
 	
@@ -36,7 +36,7 @@
 
 <form action="edit.php" method="get">
 	<input name="car_id" type="hidden" value="<?=$_GET["edit_id"];?>">
-	<input name="number_plate" type="text" value="<?=$car->number_plate;?>"><br> <!--siit läheb reale updateCarData. Siis läheb edit functions. $stmt->bind_param ja siis $stmt = $mysqli->prepare-->
+	<input name="number_plate" type="text" value="<?=$car->number_plate;?>"><br> <!--siit läheb reale updateCarData. Siis läheb edit_functions.php. $stmt->bind_param ja siis $stmt = $mysqli->prepare-->
 	<input name="color" type="text" value="<?=$car->color;?>"><br>
 	<input name="update" type="submit"><br>
 	

@@ -5,11 +5,27 @@
     $database = "if15_skmw";
    
 	//selleks, et kuvada tabel lehel vĆ¤lja. 
-	function getAllData(){
+	
+	//vaikeväärtus on keywordil, et vältida errorit, mis tekiks real $car_array = getAllData(); table.php's
+	function getAllData($keyword=""){
+		
+		if($keyword == ""){
+			
+			$search = "%%";
+			//ei otsi
+			
+		}else{
+			
+			//otsime
+			$search = "%".$keyword."%";
+			
+		}
+	
 		
 		//deleted is NULL, ei ole kustutatud
 		$mysqli = new mysqli($GLOBALS["servername"], $GLOBALS["server_username"], $GLOBALS["server_password"], $GLOBALS["database"]);
-		$stmt = $mysqli->prepare("SELECT id, user_id, number_plate, color FROM car_plates WHERE deleted is NULL");
+		$stmt = $mysqli->prepare("SELECT id, user_id, number_plate, color FROM car_plates WHERE deleted IS NULL AND number_plate LIKE ? OR color LIKE ?");
+		$stmt->bind_param("ss", $search, $search);
 	//kuna küsimärke pole, siis bind_param jääb vahele.
 	
 	//seob selle, mis tabelist saadud, nende muutujatega bind result.
