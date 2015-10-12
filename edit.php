@@ -12,6 +12,7 @@
 		
 		//küsin andmeid.
 		//muutuja "car" saab andmed ühe auto kohta ja siis hoiab neid kõiki.
+		//getSingleCarData tuleb kõik edit_functions lehelt. Seal on selle sisu
 		$car = getSingleCarData($_GET["edit_id"]);
 		var_dump ($car);
 		
@@ -25,3 +26,14 @@
 	
 
 ?>
+
+<!--Salvestamiseks kasutan table.php rida updateCarData($_GET["car_id"], $_GET["number_plate"], $_GET["color"]); updateCar() -->
+
+<form action="table.php" method="get">
+	<input name="car_id" type="hidden" value="<?=$_GET["edit_id"];?>">
+	<input name="number_plate" type="text" value="<?=$car->number_plate;?>"><br>
+	<input name="color" type="text" value="<?=$car->color;?>"><br>
+	<input name="update" type="submit"><br>
+	
+
+</form>

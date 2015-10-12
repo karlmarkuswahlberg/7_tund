@@ -65,6 +65,8 @@
 		 $stmt->close();
 		 $mysqli->close();
 	}
+	
+	//uuendab muudatused ja salvestab ära.
 	function updateCarData($car_id, $number_plate, $color){
 		$mysqli = new mysqli($GLOBALS["servername"], $GLOBALS["server_username"], $GLOBALS["server_password"], $GLOBALS["database"]);
 		
@@ -77,5 +79,3 @@
 	}
 
 ?>
-
-
