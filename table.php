@@ -28,6 +28,7 @@
 	<th>Värv</th>
 	<th>Kustuta</th>
 	<th>Edit</th>
+	<th>Edit separately</th>
 	
 </tr>
 <?php
@@ -61,7 +62,8 @@
 			echo "<td>".$car_array[$i]->color."</td>";
 			echo "<td><a href='?delete=".$car_array[$i]->id."'>X</a></td>";
 			echo "<td><a href='?edit=".$car_array[$i]->id."'>edit</a></td>";
-			
+			//lisan tulba, mis viib edit.php lehele.
+			echo "<td><a href='edit.php?edit_id=".$car_array[$i]->id."'>edit</a></td>";
 			echo "</tr>";
 			//echo $car_array[$i]->id."<br>";
 			//echo $car_array[$i]->number_plate."<br>";
